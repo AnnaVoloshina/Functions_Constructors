@@ -4,15 +4,17 @@ function Auto(name, color, movementTime, startVelocity, finalVelocity) {
   this.name = name;
   this.color = color;
   this.movementTime = movementTime;
+  this.startVelocity = startVelocity;
+  this.finalVelocity = finalVelocity;
+
   this.acceleration = function () {
     return (finalVelocity - startVelocity) / movementTime;
   };
   this.state = function () {
-    if (this.finalVelocity > 0) {
+    if (this.finalVelocity === 0) {
       return "Авто стоит на месте";
     } else {
-      //   return `Авто едет со скоростью ${this.finalVelocity}.`;
-      return "Авто стоит на месте";
+      return `Авто едет со скоростью ${this.finalVelocity}.`;
     }
   };
 }
